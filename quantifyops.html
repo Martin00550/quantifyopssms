@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuantifyOps | The 5-Star Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#005cb8",
+                        "accent-orange": "#f97316",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(249, 115, 22, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; scroll-padding-top: 80px; }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+        .feature-icon {
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f7f8 0%, #ffffff 50%, #f5f7f8 100%);
+        }
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-10px) translateX(-50%); }
+            60% { transform: translateY(-5px) translateX(-50%); }
+        }
+        .scroll-arrow {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .trust-badge {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox.active {
+            display: flex;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        #lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14 md:h-16">
+<div class="flex items-center gap-2">
+<img src="https://i.postimg.cc/L5rbmnJc/Screenshot-2026-03-07-154049-removebg-preview.png" alt="QuantifyOps" class="h-10 md:h-12 w-auto">
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#problem">The Problem</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#solution">Features</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#roi">Pricing</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#guarantee">Guarantee</a>
+</nav>
+<a href="https://quantifyops.getnewfeedback.com/subscribe/ODI5NjU4MQ==" target="_blank" class="bg-gradient-to-r from-primary to-blue-600 text-white px-4 md:px-6 py-2 rounded-lg font-bold text-xs md:text-sm hover:shadow-lg hover:shadow-primary/30 transition-all hidden md:inline-block">
+Start Now
+</a>
+</div>
+</div>
+</header>
+<main>
+<!-- Section 1: Hero -->
+<section class="relative pt-20 pb-16 md:pt-24 md:pb-24 overflow-hidden hero-gradient">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Decorative elements -->
+<div class="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-orange/10 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl"></div>
+<div class="relative">
+<div class="text-center mb-10 md:mb-16">
+<h1 class="text-3xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white leading-[1.05] mb-6 md:mb-8 max-w-5xl mx-auto">
+                    Get More 5-Star Google Reviews While You Focus on Your Business.
+                </h1>
+                <p class="text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed">
+                        Our automated system asks happy customers for reviews after every job — so your online reputation grows automatically while you focus on running your business.
+                </p>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="mt-10 md:mt-16">
+<div class="text-center">
+<a href="https://quantifyops.getnewfeedback.com/subscribe/ODI5NjU4MQ==" target="_blank" class="cta-button bg-gradient-to-r from-accent-orange to-orange-600 text-white px-8 md:px-16 py-4 md:py-6 rounded-xl md:rounded-2xl font-bold md:font-black text-lg md:text-2xl hover:scale-105 transition-all duration-300 shadow-2xl shadow-accent-orange/40 hover:shadow-accent-orange/60 inline-block">
+Get started today for $297
+</a>
+</div>
+<!-- Trust Badges -->
+<div class="mt-8 max-w-2xl mx-auto">
+<div class="flex flex-wrap justify-center gap-4">
+<div class="trust-badge rounded-full px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600">verified</span>
+<span class="text-sm font-medium text-green-700">60-Day Money-Back Guarantee</span>
+</div>
+<div class="trust-badge rounded-full px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600">description</span>
+<span class="text-sm font-medium text-green-700">No Long-Term Contract</span>
+</div>
+<div class="trust-badge rounded-full px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600">cancel</span>
+<span class="text-sm font-medium text-green-700">Cancel Anytime</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Scroll Arrow -->
+<div class="mt-16 text-center">
+<div class="scroll-arrow mx-auto">
+<a href="#problem" class="flex flex-col items-center text-slate-400 hover:text-primary transition-colors">
+<span class="text-sm font-medium mb-1">Learn More</span>
+<span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: The Problem -->
+<section class="py-12 md:py-24 bg-white dark:bg-slate-900/50" id="problem">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-16 items-center">
+<div>
+<h2 class="text-2xl md:text-3xl font-black mb-4 md:mb-6 uppercase tracking-tight text-primary">Market Reality</h2>
+<p class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Why Reviews Matter for Local Business</p>
+<p class="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-6 md:mb-8 leading-relaxed">
+                            Online reviews significantly impact local search rankings and customer decisions. According to the <a href="https://www.whitespark.ca/local-search-ranking-factors" target="_blank" class="text-primary hover:underline">Whitespark Local Search Ranking Factors</a> study, review signals account for approximately 20% of local pack rankings, and high numerical ratings (4-5 stars) are among the most influential factors. Businesses with more positive reviews tend to appear higher in Google Maps results, which can lead to increased visibility.
+                        </p>
+<p class="text-xs text-slate-400">Note: Results vary based on location, industry, competition, and other factors. We don't guarantee specific rankings or number of leads.</p>
+</div>
+<div class="relative">
+<a href="javascript:void(0)" onclick="openLightbox('https://i.postimg.cc/xjy9jmny/Untitled-design-(18).jpg')">
+<div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 cursor-pointer">
+<img class="w-full h-auto" src="https://i.postimg.cc/xjy9jmny/Untitled-design-(18).jpg" alt="Market Research Data">
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: The Solution -->
+<section class="py-12 md:py-24 bg-slate-50" id="solution">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-2xl md:text-4xl font-black mb-4">Everything You Need to Get More Google Reviews</h2>
+<p class="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-8 md:mb-16 max-w-2xl mx-auto">Our automated platform helps service businesses collect more reviews from happy customers while protecting your online reputation.</p>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+<div class="feature-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border-b-4 border-primary">
+<div class="feature-icon w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+<span class="material-symbols-outlined text-2xl font-bold">upload_file</span>
+</div>
+<h3 class="text-lg font-black mb-3 uppercase tracking-tight">Customer Import</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Seamlessly import your customer list from Jobber. For other CRMs, simply upload a spreadsheet (Excel/CSV).</p>
+</div>
+<div class="feature-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border-b-4 border-primary">
+<div class="feature-icon w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+<span class="material-symbols-outlined text-2xl font-bold">sms</span>
+</div>
+<h3 class="text-lg font-black mb-3 uppercase tracking-tight">SMS Requests</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Automated text messages sent to customers after job completion asking for a review.</p>
+</div>
+<div class="feature-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border-b-4 border-primary">
+<div class="feature-icon w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+<span class="material-symbols-outlined text-2xl font-bold">shield</span>
+</div>
+<h3 class="text-lg font-black mb-3 uppercase tracking-tight">Smart Sentiment Routing</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">Identify unhappy customers and route them to private feedback for service recovery, while happy customers are guided to leave Google reviews. This helps resolve issues before they become public reviews.</p>
+</div>
+<div class="feature-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border-b-4 border-primary">
+<div class="feature-icon w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+<span class="material-symbols-outlined text-2xl font-bold">chat</span>
+</div>
+<h3 class="text-lg font-black mb-3 uppercase tracking-tight">Auto-Respond</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Automatically respond to every review and thank customers for positive feedback.</p>
+</div>
+<div class="feature-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border-b-4 border-primary">
+<div class="feature-icon w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+<span class="material-symbols-outlined text-2xl font-bold">analytics</span>
+</div>
+<h3 class="text-lg font-black mb-3 uppercase tracking-tight">Dashboard</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Track your reviews, ratings, and performance from one simple dashboard.</p>
+</div>
+<div class="feature-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border-b-4 border-primary">
+<div class="feature-icon w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+<span class="material-symbols-outlined text-2xl font-bold">calendar_month</span>
+</div>
+<h3 class="text-lg font-black mb-3 uppercase tracking-tight">Smart Timing</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Messages are sent at the optimal time after job completion for best response rates.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Why It Works -->
+<section class="py-12 md:py-24 bg-primary text-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-16 items-center">
+<div class="space-y-6 md:space-y-10">
+<h2 class="text-2xl md:text-4xl font-black">Optimized Review Acquisition System</h2>
+<div class="flex gap-4 md:gap-6">
+<span class="material-symbols-outlined text-3xl md:text-4xl text-accent-orange flex-shrink-0">psychology</span>
+<div>
+<h3 class="text-lg md:text-xl font-bold mb-2">Sentiment Analysis Engine</h3>
+<p class="text-primary/10 text-slate-200 text-sm md:text-base">AI-powered sentiment analysis identifies optimal review request timing and routes unhappy customers to private feedback channels while guiding satisfied customers to Google.</p>
+</div>
+</div>
+<div class="flex gap-4 md:gap-6">
+<span class="material-symbols-outlined text-3xl md:text-4xl text-accent-orange flex-shrink-0">fort</span>
+<div>
+<h3 class="text-lg md:text-xl font-bold mb-2">Service Recovery System</h3>
+<p class="text-primary/10 text-slate-200 text-sm md:text-base">Unhappy customers are routed to private feedback, giving you a chance to resolve issues. Happy customers are guided to leave public reviews.</p>
+</div>
+</div>
+<div class="flex gap-4 md:gap-6">
+<span class="material-symbols-outlined text-3xl md:text-4xl text-accent-orange flex-shrink-0">bolt</span>
+<div>
+<h3 class="text-lg md:text-xl font-bold mb-2">Automated Engagement</h3>
+<p class="text-primary/10 text-slate-200 text-sm md:text-base">Instant response system demonstrates business responsiveness and active reputation management to improve conversion metrics.</p>
+</div>
+</div>
+</div>
+<a href="javascript:void(0)" onclick="openLightbox('https://i.postimg.cc/hGXpMNSS/Untitled-design-(19)-(1).png')">
+<div class="rounded-2xl overflow-hidden shadow-2xl">
+<img class="w-full h-auto" src="https://i.postimg.cc/hGXpMNSS/Untitled-design-(19)-(1).png" alt="Dashboard Preview">
+</div>
+</a>
+</section>
+<!-- Section 5: Pricing -->
+<section class="py-12 md:py-24 bg-slate-100 dark:bg-slate-900" id="roi">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-200 dark:border-slate-700 text-center">
+<h2 class="text-2xl md:text-4xl font-black mb-4 text-slate-900 dark:text-white">Simple, Transparent Pricing</h2>
+<p class="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto">Get started with our review management platform. One simple price.</p>
+<div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-6 md:p-8 inline-block">
+<div class="flex items-center justify-center gap-2 mb-2">
+<span class="text-4xl md:text-5xl font-black text-primary">$297</span>
+<span class="text-slate-500 font-bold uppercase text-sm tracking-widest">/month</span>
+</div>
+
+</div>
+<a href="https://quantifyops.getnewfeedback.com/subscribe/ODI5NjU4MQ==" target="_blank" class="cta-button inline-block mt-6 bg-gradient-to-r from-accent-orange to-orange-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-accent-orange/30">
+Get started today
+</a>
+<div class="bg-primary/5 rounded-2xl p-4 md:p-6 border border-primary/20 max-w-2xl mx-auto mt-8">
+<p class="text-base md:text-lg font-medium text-slate-700 dark:text-slate-300">
+                            "Every new review can help your business stand out. More positive reviews may lead to increased trust from potential customers searching for services like yours."
+                        </p>
+<p class="text-sm text-slate-500 mt-4">Results vary based on location, industry, competition, and other factors.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Guarantee -->
+<section class="py-12 md:py-24 bg-slate-100" id="guarantee">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="relative bg-slate-900 rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 text-center text-white shadow-2xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-24 h-24 md:w-32 md:h-32 bg-accent-orange rounded-full flex items-center justify-center border-4 md:border-8 border-background-light dark:border-background-dark shadow-lg shadow-accent-orange/50">
+<span class="material-symbols-outlined text-4xl md:text-5xl font-bold">verified_user</span>
+</div>
+</div>
+<h2 class="text-2xl md:text-4xl font-black mb-4 mt-8 md:mt-4">60-Day Satisfaction Guarantee</h2>
+<p class="text-base md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-10">
+                        Try The 5-Star Vault for 60 days. If we do not help you generate at least 3 new Google reviews within 60 days (requires active customer database), we'll refund your payment. See refund policy for details.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Section 7: Final CTA -->
+<section class="py-12 md:py-24 bg-gradient-to-b from-slate-50 to-white">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-2xl md:text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4 md:mb-6">Get More Google Reviews.</h2>
+<p class="text-base md:text-xl text-slate-600 dark:text-slate-400 mb-8 md:mb-12">
+                    Simple setup. Month-to-month. Cancel anytime.
+                </p>
+<div class="inline-flex flex-col items-center p-8 md:p-10 bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 w-full max-w-md">
+<div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-6 w-full mb-6">
+<div class="flex items-center justify-center gap-2 mb-2">
+<span class="text-4xl md:text-5xl font-black text-primary">$297</span>
+</div>
+<span class="text-slate-500 font-bold uppercase text-sm tracking-widest">/month</span>
+</div>
+<a href="https://quantifyops.getnewfeedback.com/subscribe/ODI5NjU4MQ==" target="_blank" class="cta-button w-full bg-gradient-to-r from-accent-orange to-orange-600 text-white py-4 md:py-6 rounded-xl md:rounded-2xl font-bold md:font-black text-lg md:text-2xl hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-accent-orange/30 mb-6 inline-block">
+Get started today
+</a>
+                <div class="flex flex-col gap-2 md:gap-3 w-full text-left">
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-500">
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                        <span>Unlimited SMS Review Requests</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-500">
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                        <span>Smart Sentiment Routing</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-500">
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                        <span>Auto-Respond</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-500">
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                        <span>Customer Import (Jobber + CSV)</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-500">
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                        <span>Dashboard Analytics</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-500">
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                        <span>Smart Timing</span>
+                    </div>
+                </div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<div class="flex items-center justify-center gap-2 mb-6">
+<img src="https://i.postimg.cc/L5rbmnJc/Screenshot-2026-03-07-154049-removebg-preview.png" alt="QuantifyOps" class="h-14 w-auto">
+</div>
+<p class="text-slate-500 text-sm mb-2">&copy; 2026 Martin Vasko. All rights reserved.</p>
+<p class="text-slate-400 text-xs mb-4">Martin Vasko, IČO: 56440553, DIČ: 1129970413</p>
+<p class="text-slate-400 text-xs mb-6">Ulica Jozefa Adamca 9983/24, 917 01 Trnava, Slovakia</p>
+<div class="flex flex-wrap justify-center gap-4 md:gap-6 text-xs font-bold text-slate-400 uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="terms.html">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="refund.html">Refund Policy</a>
+<a class="hover:text-primary transition-colors" href="mailto:vaskomartin3@gmail.com">Contact Support</a>
+</div>
+</div>
+</footer>
+<div id="lightbox" onclick="this.classList.remove('active')">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed image">
+    </div>
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+    </script>
+</body></html>
